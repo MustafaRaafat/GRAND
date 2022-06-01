@@ -26,6 +26,10 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
+    buildFeatures {
+        viewBinding true
+    }
 }
 
 dependencies {
@@ -41,6 +45,7 @@ dependencies {
 //    dagger hilt
     implementation 'com.google.dagger:hilt-android:2.42'
     annotationProcessor 'com.google.dagger:hilt-compiler:2.42'
+    implementation 'androidx.hilt:hilt-navigation-fragment:1.0.0'
 
 //    rxJava and rxAndroid
     implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'

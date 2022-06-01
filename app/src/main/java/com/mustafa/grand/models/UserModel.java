@@ -75,7 +75,7 @@ public class UserModel {
         this.website = website;
     }
 
-    class Address{
+    public class Address{
         private String street;
         private String suite;
         private String city;

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/grand_navigation"
+    app:startDestination="@id/profile">
+
+    <fragment
+        android:id="@+id/profile"
+        android:name="com.mustafa.grand.Profile"
+        android:label="Profile"
+        tools:layout="@layout/fragment_profile_screen" >
+        <action
+            android:id="@+id/action_profile_to_albumDetails"
+            app:destination="@id/albumDetails" />
+    </fragment>
+    <fragment
+        android:id="@+id/albumDetails"
+        android:name="com.mustafa.grand.AlbumDetails"
+        android:label="Album Details"
+        tools:layout="@layout/fragment_album_details_screen" />
+</navigation>
