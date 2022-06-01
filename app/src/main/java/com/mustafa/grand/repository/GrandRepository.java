@@ -1,7 +1,10 @@
 package com.mustafa.grand.repository;
 
+import com.mustafa.grand.models.AlbumsModel;
 import com.mustafa.grand.models.UserModel;
 import com.mustafa.grand.network.GrandApiService;
+
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -18,5 +21,9 @@ public class GrandRepository {
 
     public Observable<UserModel> getUser(){
         return apiService.getUser();
+    }
+
+    public Observable<List<AlbumsModel>> getAlbums(int userId){
+        return apiService.getAlbums(userId);
     }
 }

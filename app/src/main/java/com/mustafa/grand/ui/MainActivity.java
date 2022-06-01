@@ -1,4 +1,4 @@
-package com.mustafa.grand;
+package com.mustafa.grand.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 

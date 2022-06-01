@@ -5,8 +5,11 @@ import android.util.Log;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.mustafa.grand.models.AlbumsModel;
 import com.mustafa.grand.models.UserModel;
 import com.mustafa.grand.repository.GrandRepository;
+
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -20,6 +23,7 @@ public class UserViewModel extends ViewModel {
     private GrandRepository repository;
 
     MutableLiveData<UserModel> user = new MutableLiveData<>();
+    MutableLiveData<List<AlbumsModel>> albums =new MutableLiveData<>();
 
     @Inject
     public UserViewModel(GrandRepository repository) {
@@ -30,12 +34,27 @@ public class UserViewModel extends ViewModel {
         return user;
     }
 
+    public MutableLiveData<List<AlbumsModel>> getAlbums() {
+        return albums;
+    }
+
     public void getUserFromApi(){
         repository.getUser()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(userModel -> {
                     user.setValue(userModel);
+                },throwable -> {
+                    Log.d(TAG,throwable.toString());
+                });
+    }
+
+    public void getUserAlbumsFromApi(int userId){
+        repository.getAlbums(userId)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(albumsModel -> {
+                    albums.setValue(albumsModel);
                 },throwable -> {
                     Log.d(TAG,throwable.toString());
                 });

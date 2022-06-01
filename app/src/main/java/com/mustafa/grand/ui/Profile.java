@@ -1,4 +1,4 @@
-package com.mustafa.grand;
+package com.mustafa.grand.ui;
 
 import android.os.Bundle;
 
@@ -12,12 +12,14 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.mustafa.grand.databinding.FragmentProfileScreenBinding;
+import com.mustafa.grand.ui.adapters.AlbumsAdapter;
 import com.mustafa.grand.viewmodels.UserViewModel;
 
 public class Profile extends Fragment {
 
     private FragmentProfileScreenBinding binding;
     private UserViewModel userViewModel;
+    private AlbumsAdapter albumsAdapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -31,17 +33,26 @@ public class Profile extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        userViewModel=new ViewModelProvider(getActivity()).get(UserViewModel.class);
+        userViewModel = new ViewModelProvider(getActivity()).get(UserViewModel.class);
+        albumsAdapter = new AlbumsAdapter();
+        binding.albumRecycler.setAdapter(albumsAdapter);
+
+
         userViewModel.getUserFromApi();
-        userViewModel.getUser().observe(getViewLifecycleOwner(),userModel -> {
+        userViewModel.getUser().observe(getViewLifecycleOwner(), userModel -> {
             binding.userName.setText(userModel.getName());
             binding.userAddress.setText(userModel.getAddress().getStreet());
+            userViewModel.getUserAlbumsFromApi(userModel.getId());
+        });
+
+        userViewModel.getAlbums().observe(getViewLifecycleOwner(), albumsModel -> {
+            albumsAdapter.setData(albumsModel);
         });
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        binding=null;
+        binding = null;
     }
 }
