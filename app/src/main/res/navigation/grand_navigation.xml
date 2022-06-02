@@ -9,16 +9,16 @@
         android:id="@+id/profile"
         android:name="com.mustafa.grand.ui.profile.Profile"
         android:label="Profile"
-        tools:layout="@layout/fragment_profile_screen" >
+        tools:layout="@layout/fragment_profile_screen">
         <action
             android:id="@+id/action_profile_to_albumDetails"
             app:destination="@id/albumDetails" />
     </fragment>
     <fragment
         android:id="@+id/albumDetails"
-        android:name="com.mustafa.grand.ui.AlbumDetails"
+        android:name="com.mustafa.grand.ui.photos.AlbumDetails"
         android:label="Album Details"
-        tools:layout="@layout/fragment_album_details_screen" >
+        tools:layout="@layout/fragment_album_details_screen">
         <argument
             android:name="albumId"
             app:argType="integer" />
@@ -30,7 +30,7 @@
         android:id="@+id/fullScreenImage"
         android:name="com.mustafa.grand.ui.FullScreenImage"
         android:label="full_screen_image"
-        tools:layout="@layout/full_screen_image" >
+        tools:layout="@layout/full_screen_image">
         <argument
             android:name="PhotoUrl"
             app:argType="string" />

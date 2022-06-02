@@ -12,7 +12,7 @@ import retrofit2.http.Query;
 
 public interface GrandApiService {
 
-    @GET("users/4")
+    @GET("users/6")
     Observable<UserModel> getUser();
 
     @GET("albums")

@@ -40,6 +40,7 @@ public class Profile extends Fragment {
 
         userViewModel.getUserFromApi();
         userViewModel.getUser().observe(getViewLifecycleOwner(), userModel -> {
+            binding.profileProgressBar.setVisibility(View.GONE);
             binding.userName.setText(userModel.getName());
             binding.userAddress.setText(userModel.getAddress().getStreet());
             userViewModel.getUserAlbumsFromApi(userModel.getId());

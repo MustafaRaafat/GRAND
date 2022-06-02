@@ -1,4 +1,4 @@
-package com.mustafa.grand.ui;
+package com.mustafa.grand.ui.photos;
 
 import android.os.Bundle;
 
@@ -28,8 +28,8 @@ public class AlbumDetails extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        binding=FragmentAlbumDetailsScreenBinding.inflate(inflater,container,false);
-        View view=binding.getRoot();
+        binding = FragmentAlbumDetailsScreenBinding.inflate(inflater, container, false);
+        View view = binding.getRoot();
         return view;
     }
 
@@ -37,15 +37,15 @@ public class AlbumDetails extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 //        initialize the view model
-        photosViewModel=new ViewModelProvider(getActivity()).get(PhotosViewModel.class);
+        photosViewModel = new ViewModelProvider(getActivity()).get(PhotosViewModel.class);
 
-        int albumId=AlbumDetailsArgs.fromBundle(getArguments()).getAlbumId();
+        int albumId = AlbumDetailsArgs.fromBundle(getArguments()).getAlbumId();
         photosViewModel.getPhotosFromApi(albumId);
 
-        photosAdapter=new PhotosAdapter(getContext());
+        photosAdapter = new PhotosAdapter(getContext());
         binding.photoRecycler.setAdapter(photosAdapter);
 
-        photosViewModel.getPhotos().observe(getViewLifecycleOwner(),photoModels -> {
+        photosViewModel.getPhotos().observe(getViewLifecycleOwner(), photoModels -> {
             photosAdapter.setData(photoModels);
         });
     }
@@ -53,6 +53,6 @@ public class AlbumDetails extends Fragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        binding=null;
+        binding = null;
     }
 }
