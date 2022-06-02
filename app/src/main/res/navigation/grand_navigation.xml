@@ -22,5 +22,17 @@
         <argument
             android:name="albumId"
             app:argType="integer" />
+        <action
+            android:id="@+id/action_albumDetails_to_fullScreenImage"
+            app:destination="@id/fullScreenImage" />
+    </fragment>
+    <fragment
+        android:id="@+id/fullScreenImage"
+        android:name="com.mustafa.grand.ui.FullScreenImage"
+        android:label="full_screen_image"
+        tools:layout="@layout/full_screen_image" >
+        <argument
+            android:name="PhotoUrl"
+            app:argType="string" />
     </fragment>
 </navigation>

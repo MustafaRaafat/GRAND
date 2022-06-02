@@ -7,10 +7,13 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
+import androidx.navigation.NavDirections;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.mustafa.grand.R;
 import com.mustafa.grand.models.PhotoModel;
+import com.mustafa.grand.ui.AlbumDetailsDirections;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -42,6 +45,13 @@ public class PhotosAdapter extends RecyclerView.Adapter<PhotosAdapter.PhotosHold
         Picasso.get()
                 .load(data.get(position).getThumbnailUrl())
                 .into(holder.imageView);
+
+        holder.imageView.setOnClickListener(view -> {
+//            show photo in full screen
+            NavDirections directions= AlbumDetailsDirections
+                    .actionAlbumDetailsToFullScreenImage(data.get(position).getUrl());
+            Navigation.findNavController(view).navigate(directions);
+        });
     }
 
     @Override
