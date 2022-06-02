@@ -5,7 +5,9 @@
       <map>
         <entry key="..\:/old_driver/AndroidStudioProjects/GRAND/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
         <entry key="..\:/old_driver/AndroidStudioProjects/GRAND/app/src/main/res/layout/album_item.xml" value="0.33" />
+        <entry key="..\:/old_driver/AndroidStudioProjects/GRAND/app/src/main/res/layout/fragment_album_details_screen.xml" value="0.1" />
         <entry key="..\:/old_driver/AndroidStudioProjects/GRAND/app/src/main/res/layout/fragment_profile_screen.xml" value="0.20416666666666666" />
+        <entry key="..\:/old_driver/AndroidStudioProjects/GRAND/app/src/main/res/layout/photo_item.xml" value="0.1" />
       </map>
     </option>
   </component>

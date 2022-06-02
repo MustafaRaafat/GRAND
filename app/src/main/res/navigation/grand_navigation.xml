@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/profile"
-        android:name="com.mustafa.grand.ui.Profile"
+        android:name="com.mustafa.grand.ui.profile.Profile"
         android:label="Profile"
         tools:layout="@layout/fragment_profile_screen" >
         <action
@@ -18,5 +18,9 @@
         android:id="@+id/albumDetails"
         android:name="com.mustafa.grand.ui.AlbumDetails"
         android:label="Album Details"
-        tools:layout="@layout/fragment_album_details_screen" />
+        tools:layout="@layout/fragment_album_details_screen" >
+        <argument
+            android:name="albumId"
+            app:argType="integer" />
+    </fragment>
 </navigation>

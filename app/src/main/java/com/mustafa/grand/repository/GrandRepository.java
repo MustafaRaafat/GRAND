@@ -1,6 +1,7 @@
 package com.mustafa.grand.repository;
 
 import com.mustafa.grand.models.AlbumsModel;
+import com.mustafa.grand.models.PhotoModel;
 import com.mustafa.grand.models.UserModel;
 import com.mustafa.grand.network.GrandApiService;
 
@@ -25,5 +26,9 @@ public class GrandRepository {
 
     public Observable<List<AlbumsModel>> getAlbums(int userId){
         return apiService.getAlbums(userId);
+    }
+
+    public Observable<List<PhotoModel>> getPhotos(int albumId){
+        return apiService.getPhotos(albumId);
     }
 }

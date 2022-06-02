@@ -1,4 +1,4 @@
-package com.mustafa.grand.ui;
+package com.mustafa.grand.ui.profile;
 
 import android.os.Bundle;
 

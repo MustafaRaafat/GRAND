@@ -5,6 +5,8 @@ plugins {
 
 //    dependencies for dagger hilt
     id 'com.google.dagger.hilt.android' version '2.42' apply false
+//    save args
+    id 'androidx.navigation.safeargs' version '2.4.2' apply false
 }
 
 task clean(type: Delete) {

@@ -19,7 +19,7 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
 
 @HiltViewModel
 public class UserViewModel extends ViewModel {
-    private static final String TAG = "viewmodel";
+    private static final String TAG = "user viewmodel";
     private GrandRepository repository;
 
     MutableLiveData<UserModel> user = new MutableLiveData<>();
